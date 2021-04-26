@@ -26,8 +26,8 @@ const binanceFutureAjax = axios.create({
     //     r[e] = true
     //     return r
     // }, {})
-
-    // Get Token in spot not in future by point
+    //
+    // // Get Token in spot not in future by point
     // const spotTokenNotInFuture = spotTokenUSDT.filter(
     //     e => !futureTokenUSDTChecker[e]
     //         && (e.length >=5 ? !(e.substr(e.length - 2, e.length) === 'UP' || e.substr(e.length - 4, e.length) === 'DOWN'): true)
@@ -50,7 +50,7 @@ const binanceFutureAjax = axios.create({
     for (const asset of spotTokenUSDT) {
         try {
             const [kline, avgPrice] = await Promise.all([
-                binanceSpotAjax.get(`api/v3/klines?symbol=${asset + 'USDT'}&interval=1w&limit=10`),
+                binanceSpotAjax.get(`api/v3/klines?symbol=${asset + 'USDT'}&interval=1w&limit=12`),
                 binanceSpotAjax.get(`api/v3/avgPrice?symbol=${asset + 'USDT'}`),
             ])
 
